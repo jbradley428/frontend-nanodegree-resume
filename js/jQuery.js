@@ -6097,6 +6097,7 @@ function vendorPropName( style, name ) {
   return origName;
 }
 
+
 function isHidden( elem, el ) {
   // isHidden might be called from jQuery#filter function;
   // in that case, element will be second argument

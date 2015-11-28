@@ -21,6 +21,14 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
 
+  <!-- Google Font - Playfair, Dosis & Petit Formal Script -->
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Petit+Formal+Script' rel='stylesheet' type='text/css'>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
 
@@ -46,13 +54,13 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
-<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-  <div id="main">
-    Hello world!   <!-- You'll be deleting this line in the course -->
+  <div id="main" class="container-fluid">
+    <!--Hello world! - You'll be deleting this line in the course -->
 
     <!--
     Everything from here to the <script> tag below is the skeleton of your
@@ -60,8 +68,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content clear-fix">
+    <div id="header" class="center-content clear-fix row">
       <ul id="topContacts" class="flex-box"></ul>
+      <hr>
     </div>
     <div style="clear: both;"></div>
     <div id="workExperience" class="gray">
@@ -69,17 +78,23 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     </div>
     <div id="projects">
       <h2>Projects</h2>
+      <!--<div class="row">
+      </div>-->
     </div>
     <div id="education" class="gray">
       <h2>Education</h2>
+
+
     </div>
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </div>
     <div id="lets-connect" class="dark-gray">
+      <hr>
       <h2 class="orange center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
+      <hr>
     </div>
   </div>
 
