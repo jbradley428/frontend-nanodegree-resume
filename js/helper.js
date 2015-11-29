@@ -23,11 +23,13 @@ var HTMLgithub = '<li class="flex-item hidden-xs"><span class="black-text"><i cl
 var HTMLblog = '<li class="flex-item"><span class="black-text">blog</span><span class="silver-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item hidden-xs"><span class="black-text"><i class="fa fa-globe"></i></span><a href="https://goo.gl/maps/26fKPGPsrRT2" target="_blank"><span class="silver-text">%data%</span></a></li>';
 
-var HTMLbioPic = '<div class="profilePic col-sm-3"><img src="%data%" class="img-responsive img-circle biopic"></div>';
+var HTMLbiopic = '<div class="profilePic col-sm-3"><img src="%data%" class="img-responsive img-circle biopic"></div>';
 var HTMLwelcomeMsg = '<span class="welcome-message col-xs-12 col-sm-9">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3" class="col-xs-12 col-sm-9">Skills at a Glance:</h3><ul id="skills" class="col-xs-12 col-sm-9"></ul>';//had class="flex-box"
+var HTMLskillsStart = '<h3 id="skills-h3" class="col-xs-12 col-sm-6">Skills at a Glance:</h3><ul id="skills" class="col-xs-12 col-sm-6"></ul>';//had class="flex-box"
 var HTMLskills = '<li class="fa fa-diamond"><span class="silver-text">%data%</span></li>';// had class="flex-item"
+
+var Chart = '<canvas id="myChart" class="col-sm-3" width="400" height="400"></canvas>';
 
 var HTMLworkStart = '<div class="col-xs-12 col-sm-6 work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
