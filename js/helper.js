@@ -13,50 +13,48 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '<span>%data%</span>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text"><i class="fa fa-mobile"></i></span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text"><i class="fa fa-envelope"></i></span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text"><i class="fa fa-twitter"></i></span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text"><i class="fa fa-github"></i></span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text"><i class="fa fa-globe"></i></span><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="black-text">%contact%</span><span class="silver-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item hidden-xs"><span class="black-text"><i class="fa fa-mobile"></i></span><a href="mailto:jbradley428@gmail.com" target="_blank"><span class="silver-text">%data%</span></a></li>';
+var HTMLemail = '<li class="flex-item"><span class="black-text"><i class="fa fa-envelope"></i></span><a href="mailto:jbradley428@gmail.com" target="_blank"><span class="silver-text">%data%</span></a></li>';
+var HTMLtwitter = '<li class="flex-item hidden-xs"><span class="black-text"><i class="fa fa-twitter"></i></span><a href="https://twitter.com/JamieRae8" target="_blank"><span class="silver-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item hidden-xs"><span class="black-text"><i class="fa fa-github"></i></span><a href="https://www.facebook.com/jamie.rae.944" target="_blank"><span class="silver-text">%data%</span></a></li>';
+var HTMLblog = '<li class="flex-item"><span class="black-text">blog</span><span class="silver-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item hidden-xs"><span class="black-text"><i class="fa fa-globe"></i></span><a href="https://goo.gl/maps/26fKPGPsrRT2" target="_blank"><span class="silver-text">%data%</span></a></li>';
 
-var HTMLbioPic = '<div class="profilePic"><img src="%data%" class="img-responsive biopic"></div>';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLbioPic = '<div class="profilePic col-sm-3"><img src="%data%" class="img-responsive img-circle biopic"></div>';
+var HTMLwelcomeMsg = '<span class="welcome-message col-xs-12 col-sm-9">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills"></ul>';//had class="flex-box"
-var HTMLskills = '<li class="fa fa-diamond"><span class="white-text">%data%</span></li>';// had class="flex-item"
+var HTMLskillsStart = '<h3 id="skills-h3" class="col-xs-12 col-sm-9">Skills at a Glance:</h3><ul id="skills" class="col-xs-12 col-sm-9"></ul>';//had class="flex-box"
+var HTMLskills = '<li class="fa fa-diamond"><span class="silver-text">%data%</span></li>';// had class="flex-item"
 
-var HTMLworkStart = '<div class="col-xs-6 work-entry"></div>';
+var HTMLworkStart = '<div class="col-xs-12 col-sm-6 work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkLocation = '<br><div class="location-text">%data%</div>';
+var HTMLworkDescription = '<p>%data%</p>';
 
-//var projectRowStart = '<div class="row">';
-//var projectRowEnd = '</div>';
-var HTMLprojectStart = '<div class="col-xs-4 project-entry"></div>';
+var HTMLprojectStart = '<div class="col-xs-12 col-sm-4 project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<div><img class="img-responsive" src="%data%"></div>';
 
 var HTMLschoolStart = '<div class="col-xs-12 education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<em>Major: %data%</em>';
 
 var HTMLonlineStart = '<div class="col-xs-12 onlineClass-entry"></div>';
 var HTMLonlineClasses = '<h2>Online Classes</h2>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<a href="%url%" class="school-url">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -87,12 +85,12 @@ function logClicks(x,y) {
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
-/*$(document).click(function(loc) {
+$(document).click(function(loc) {
   var x = loc.pageX; //pageX and pageY represent pixel locations of click
   var y = loc.pageY;
 
   logClicks(x,y)
-});*/
+});
 
 
 
@@ -178,7 +176,7 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+
     });
 
     // this is where the pin actually gets added to the map.

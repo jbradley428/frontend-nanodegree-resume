@@ -14,13 +14,14 @@ var bio = { /* JS Object - Bio */
     "email" : "jbradley428@gmail.com",
     "github" : "jbradley428",
     "twitter" : "@jamierae8",
-    "location" : "Hampton"
+    "location" : "Portsmouth, NH"
   },
   "welcomeMessage" : "Greetings and salutations!",
   "skills" : [ /*square brackets denote an array*/
     "Front-end Development", "Search Engine Optimization", "Writing", "Baking"
   ],
-  "bioPic" : "images/holly.jpg" /*the last property in an array doesn't need a comma*/
+  "bioPic" : "images/holly.jpg",
+  "display" : "myBio()"
 };
 
 //Work Experience
@@ -40,7 +41,8 @@ var work = {
       "dates" : "05/11 - 05/15",
       "description" : "SEO Specialist, Social Media person & event organizer",
     }
-  ]
+  ],
+  "display" : "displayWork()"
 };
 
 
@@ -70,7 +72,7 @@ var projects = {
       "images" : [
         "http://www.tenstickers.co.uk/wall-stickers/img/preview/unicorn-silhouette-wall-sticker-6277.png"
       ]
-    }/*,
+    }/* Commented out until projects are complete
     {
       "title" : "Website Optimization",
       "dates" : "02/01/2016",
@@ -95,7 +97,8 @@ var projects = {
         "http://www.tenstickers.co.uk/wall-stickers/img/preview/unicorn-silhouette-wall-sticker-6277.png"
       ]
     }*/
-  ]
+  ],
+  "display" : "projects.display()"
 };
 
 //Education
@@ -111,7 +114,7 @@ var education = {
       ],
       "url" : "http://www.unh.edu/"
     }
-  ]/*,
+  ],
   "onlineCourses" : [
     {
       "title" : "Front-End Web Developer Nanodegree",
@@ -124,52 +127,11 @@ var education = {
       "school" : "University of San Francisco",
       "date" : "01/12 - 03/12",
       "url" : "https://www.usfca.edu/"
-    },//end USF
-  ]//end onlineCourses
-  //display: function()*/
+    }//end USF
+  ],//end onlineCourses
+  "display" : "displayEducation()"
 };
 
-/*
-This area is for formatted variables
-*/
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github );
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-/*
-
-/*
-Bootstrap Additions
-*/
-//var row = $(".projects-entry"):first.append("<div>");
-//$("#projects h2").append("<div>").addClass("row");
-
-/*This is where I add my formatted variables to the page, using either .append() for after or .prepend() for before.
-*/
-//Adds bio info to header
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
-
-//Adds contact info to header
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedGithub);
-$("#topContacts").append(formattedLocation);
-
-//Adds contact info to footer
-$("#footerContacts").append(formattedMobile);
-$("#footerContacts").append(formattedEmail);
-$("#footerContacts").append(formattedTwitter);
-$("#footerContacts").append(formattedGithub);
-$("#footerContacts").append(formattedLocation);
 
 /*
 ================================================================================
@@ -177,19 +139,59 @@ Functions
 ================================================================================
 */
 //Bio Function
-if(bio.skills.length > 0) { //if bio.skills is greater that 0, meaning it exists
-  $("#header").append(HTMLskillsStart); //then append the variable HTMLskillsStart to #header
+function myBio() {
+  //Role
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role); //the order in which these are appended DOES matter
+    $("#header").prepend(formattedRole);
+  //Name
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(formattedName);
+  //Profile Pic
+  var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+    $("#header").append(formattedBioPic);
+  //Welcome Message
+  var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedWelcomeMsg);
+  //Contact Info
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#topContacts").append(formattedMobile);
+    $("#footerContacts").append(formattedMobile);
 
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]); //and create the variable formattedSkill by replacing the %data% in the variable HTMLskills with the 0th (first) item in the skills array
-  $("#skills").append(formattedSkill);  //then do the same thingby appending each additional skill in the array to #skills
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#topContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedEmail);
+
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
+    $("#footerContacts").append(formattedTwitter);
+
+  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github );
+    $("#topContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedGithub);
+
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#topContacts").append(formattedLocation);
+    $("#footerContacts").append(formattedLocation);
+
+  //Skills
+  if(bio.skills.length > 0) { //if bio.skills is greater that 0, meaning it exists
+    $("#header").append(HTMLskillsStart); //then append the variable HTMLskillsStart to #header
+
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]); //and create the variable formattedSkill by replacing the %data% in the variable HTMLskills with the 0th (first) item in the skills array
+    $("#skills").append(formattedSkill);  //then do the same thingby appending each additional skill in the array to #skills
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+  }
 };
+
+myBio();
+
+//===============================================================
 
 //Work Function
 function displayWork() {
@@ -218,16 +220,19 @@ function displayWork() {
 
 displayWork(); //invoking the fuction, note there are no variables because this function is in the global scope
 
+//===============================================================
 
 //Projects Function
 projects.display = function() {//display as a method of the projects object, display function added as a property to projects object with dot notation
   for(project in projects.projects) {
-    $("#projects .row").append(HTMLprojectStart);
+    $("#projects").append(HTMLprojectStart);
 
     var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
       $(".project-entry:last").append(formattedTitle);
+
     var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
       $(".project-entry:last").append(formattedDates);
+
     var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
       $(".project-entry:last").append(formattedDescription);
 
@@ -242,6 +247,7 @@ projects.display = function() {//display as a method of the projects object, dis
 
 projects.display();
 
+//===============================================================
 
 //Education Function
 function displayEducation() {
@@ -264,41 +270,31 @@ function displayEducation() {
     var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
       $(".education-entry:last").append(formattedMajor);
   }
+
+  for(course in education.onlineCourses) {
+
+    var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+      $(".education-entry:last").append(formattedTitle);//was $(".education-entry:last").append(formattedTitle);
+
+    var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+      $(".education-entry:last").append(formattedSchool);
+
+    var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
+      $(".education-entry:last").append(formattedDates);
+
+    var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+      $(".education-entry:last").append(formattedURL);
+  }
 };
 
 displayEducation();
 
-//Online Courses Function
-/*function displayCourses() {
-  //Bootstrap setup
-  /*$("#education div.row").append("<div></div>");//creates div for online classes section
-  $("#education div.row div:last").addClass("col-xs-12 col-sm-6 online-section");//adds col classes to above div
-  $(".online-section").append("<h3></h3>");//adds and h3 in the online section
-  $(".online-section h3").html("Online Classes");//gives the h3 the text "Online CLasses"
-  $(".online-section h3").attr("id","online-classes");//adds the attribute id & gives it a value of schools to the above h3
-  $(".online-section").append(HTMLonlineStart);//adds the education entries to the .school section*/
-
-  /*for(course in education.onlineCourses) {
-
-    var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
-      $(".onlineClass-entry:last").append(formattedTitle);//was $(".education-entry:last").append(formattedTitle);
-
-    var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
-      $(".onlineClass-entry:last").append(formattedSchool);
-
-    var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
-      $(".onlineClass-entry:last").append(formattedDates);
-
-    var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
-      $(".onlineClass-entry:last").append(formattedURL);
-  }
-};*/
-
-/*displayCourses();*/
+//===============================================================
 
 //Google Map
 $("#mapDiv").append(googleMap);
 
+//===============================================================
 
 //Internationalize Button
 $('#main').append(internationalizeButton);//append the internationalizeButton to the main div
@@ -308,12 +304,11 @@ $('#main').append(internationalizeButton);//append the internationalizeButton to
 
 /*
 ================================================================================
-Other? - Is this part of the project or for practice?
+Names, and locations, and clicks, oh my!
 ================================================================================
 */
-/*
-//Should collect clicks, but idk where that information is stored
-//
+
+//Click Collection
 $(document).click(function(loc) {//anonymous (unnamed) function; loc = jQuery event object
   var x = loc.pageX; //pageX and pageY represent pixel locations of click
   var y = loc.pageY;
@@ -321,8 +316,7 @@ $(document).click(function(loc) {//anonymous (unnamed) function; loc = jQuery ev
   logClicks(x,y)
 });
 
-//Should print work location, but it prints even when this is commented out in an incognito window with caches cleared
-//
+//Locationizer
 function locationizer(work_obj) {
   var locationArray = [];//initializes a new empty array
 
@@ -334,12 +328,11 @@ function locationizer(work_obj) {
   return locationArray;//invokes the function
 };
 
-console.log(locationizer(work)); - if i comment this out Portsmouth still prints, but I don't get an error on line 135 anymore
+console.log(locationizer(work));
 
-//I thought this was part of the internationalize button function, but the button doesn't work and displays even with this commented out
-//
+//Name Internationalization
 function inName(name) {
-  name = name.trim().split(" ");//for variable name, split the name at the space into an array of two names
+  name = name/*.trim()*/.split(" ");//for variable name, split the name at the space into an array of two names
   console.log(name);//print the array name values
   name[1] = name[1].toUpperCase(); //for the second name (index of 1) make all of the letters uppercase
   name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();//for the first name, take only the first character (letter between 0 and 1) and make it uppercase, make the remaining characters from 1 to the end of the string lowercase.
@@ -347,7 +340,7 @@ function inName(name) {
   return name[0] +" "+name[1]; //return the value of the first name, plus a space, plus the second name
 }
 
- */
+
 
 
 
